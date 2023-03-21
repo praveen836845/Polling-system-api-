@@ -3,7 +3,7 @@ const router = express.Router();
 console.log('Router_loaded');
 router.get('/' , (req,res) => {
     console.log("hello world");
-    res.status(200).send("<h1>dmaldma</h1>")
+    res.status(200).send("<h1>Getting all question by readme file </h1>")
 })
 router.use('/api', require('./api'));
 module.exports = router;
