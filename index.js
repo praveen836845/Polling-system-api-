@@ -1,10 +1,10 @@
-const express = require('express');
-const db = require('./connection/mongoose')
+const express = require("express");
+const db = require("./connection/mongoose");
 db.config;
 const port = process.env.PORT || 8000;
 const app = express();
-const mongoose = require('mongoose');
-const dotenv = require('dotenv')
+const mongoose = require("mongoose");
+const dotenv = require("dotenv");
 dotenv.config();
 
 // middleware for parse form data
@@ -14,16 +14,14 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 // use express router
-app.use('/', require('./routes'));
+app.use("/", require("./routes"));
 
 // Listening to the port
 app.listen(port, (err) => {
+  if (err) {
+    console.log(`Error while Running the Express Server: ${err}`);
+    return;
+  }
 
-    if (err) {
-        console.log(`Error while Running the Express Server: ${err}`);
-        return;
-    }
-
-    console.log(`Express Server is running on port: ${port}`);
-
+  console.log(`Express Server is running on port: ${port}`);
 });
